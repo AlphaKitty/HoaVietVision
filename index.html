@@ -785,6 +785,58 @@
                 </div>
             </section>
 
+            <!-- Free Course Highlight -->
+            <section style="padding: 100px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <div class="container">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">
+                            🎯 免费体验完整课程
+                        </h2>
+                        <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">
+                            无需付费，立即开始学习越南语基础课程
+                        </p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">📚</div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">6节免费课程</h3>
+                            <p style="opacity: 0.9; margin-bottom: 1.5rem;">从发音到日常对话，系统学习越南语基础</p>
+                            <button class="btn btn-secondary" onclick="showPage('free-learning')" style="background: var(--secondary); border: none;">
+                                <i class="fas fa-play"></i> 立即开始
+                            </button>
+                        </div>
+                        
+                        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">🎮</div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">互动学习工具</h3>
+                            <p style="opacity: 0.9; margin-bottom: 1.5rem;">发音游戏、单词卡片、每日挑战等趣味学习</p>
+                            <button class="btn btn-secondary" onclick="showPage('free-learning')" style="background: var(--secondary); border: none;">
+                                <i class="fas fa-gamepad"></i> 体验游戏
+                            </button>
+                        </div>
+                        
+                        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">📈</div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">学习进度追踪</h3>
+                            <p style="opacity: 0.9; margin-bottom: 1.5rem;">实时记录学习进度，让每一步都有成就感</p>
+                            <button class="btn btn-secondary" onclick="showPage('free-learning')" style="background: var(--secondary); border: none;">
+                                <i class="fas fa-chart-line"></i> 查看进度
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 1rem;">
+                            体验免费课程后，升级到线下课程获得更多互动和实践机会
+                        </p>
+                        <button class="btn btn-outline" onclick="showPage('courses')" style="border: 2px solid white; color: white; background: transparent;">
+                            <i class="fas fa-users"></i> 了解线下课程
+                        </button>
+                    </div>
+                </div>
+            </section>
+
             <!-- Testimonials -->
             <section class="testimonials">
                 <div class="container">
@@ -936,64 +988,253 @@
                 </div>
             </div>
             
+            <!-- Learning Progress -->
+            <section class="content-section" style="background: var(--gray-50);">
+                <div class="container">
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow); margin-bottom: 2rem;">
+                        <h2 style="color: var(--primary); margin-bottom: 1rem;">
+                            <i class="fas fa-graduation-cap"></i> 学习进度
+                        </h2>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div style="text-align: center; padding: 1rem; background: var(--gray-50); border-radius: 0.5rem;">
+                                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;" id="completed-lessons">3</h3>
+                                <p style="color: var(--gray-600);">已完成课程</p>
+                            </div>
+                            <div style="text-align: center; padding: 1rem; background: var(--gray-50); border-radius: 0.5rem;">
+                                <h3 style="color: var(--secondary); font-size: 2rem; margin-bottom: 0.5rem;" id="study-time">45</h3>
+                                <p style="color: var(--gray-600);">学习时间(分钟)</p>
+                            </div>
+                            <div style="text-align: center; padding: 1rem; background: var(--gray-50); border-radius: 0.5rem;">
+                                <h3 style="color: var(--accent); font-size: 2rem; margin-bottom: 0.5rem;" id="words-learned">28</h3>
+                                <p style="color: var(--gray-600);">已学单词</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Core Learning Modules -->
             <section class="content-section">
                 <div class="container">
+                    <h2 class="section-title">核心学习模块</h2>
+                    <p class="section-subtitle">循序渐进，系统掌握越南语基础</p>
+                    
                     <div class="course-grid">
-                        <div class="course-card">
-                            <div class="course-image">
+                        <!-- Pronunciation Module -->
+                        <div class="course-card" style="border-left: 4px solid var(--accent);">
+                            <div class="course-image" style="background: linear-gradient(135deg, var(--accent), #0d9488);">
                                 <i class="fas fa-volume-up"></i>
                             </div>
                             <div class="course-content">
-                                <h3 class="course-title">基础发音教学</h3>
-                                <p class="course-desc">掌握越南语的基础发音规则和语调</p>
-                                <button class="btn btn-primary" onclick="playAudio('pronunciation')">
-                                    <i class="fas fa-play"></i> 开始学习
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                    <h3 class="course-title">第1课：基础发音</h3>
+                                    <span style="background: var(--accent); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.8rem;">已完成</span>
+                                </div>
+                                <p class="course-desc">掌握越南语6个声调和基础字母发音</p>
+                                <ul class="course-features">
+                                    <li><i class="fas fa-check"></i> 6个声调详解</li>
+                                    <li><i class="fas fa-check"></i> 29个字母发音</li>
+                                    <li><i class="fas fa-check"></i> 发音练习</li>
+                                </ul>
+                                <button class="btn btn-primary" onclick="startLesson('pronunciation')" style="width: 100%;">
+                                    <i class="fas fa-play"></i> 重新学习 (15分钟)
                                 </button>
                             </div>
                         </div>
                         
-                        <div class="course-card">
+                        <!-- Greetings Module -->
+                        <div class="course-card" style="border-left: 4px solid var(--primary);">
                             <div class="course-image">
+                                <i class="fas fa-hand-wave"></i>
+                            </div>
+                            <div class="course-content">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                    <h3 class="course-title">第2课：问候与介绍</h3>
+                                    <span style="background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.8rem;">进行中</span>
+                                </div>
+                                <p class="course-desc">学会基本的问候和自我介绍</p>
+                                <ul class="course-features">
+                                    <li><i class="fas fa-check"></i> 常用问候语</li>
+                                    <li><i class="fas fa-check"></i> 自我介绍句型</li>
+                                    <li><i class="fas fa-check"></i> 互动对话练习</li>
+                                </ul>
+                                <button class="btn btn-primary" onclick="startLesson('greetings')" style="width: 100%;">
+                                    <i class="fas fa-play"></i> 继续学习 (20分钟)
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Numbers Module -->
+                        <div class="course-card" style="border-left: 4px solid var(--secondary);">
+                            <div class="course-image" style="background: linear-gradient(135deg, var(--secondary), #d97706);">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="course-content">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                    <h3 class="course-title">第3课：数字与时间</h3>
+                                    <span style="background: var(--gray-400); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.8rem;">未开始</span>
+                                </div>
+                                <p class="course-desc">掌握数字、时间和日期表达</p>
+                                <ul class="course-features">
+                                    <li><i class="fas fa-clock"></i> 数字0-100</li>
+                                    <li><i class="fas fa-clock"></i> 时间表达</li>
+                                    <li><i class="fas fa-clock"></i> 日期和星期</li>
+                                </ul>
+                                <button class="btn" style="width: 100%; background: var(--gray-300); color: var(--gray-600);" disabled onclick="startLesson('numbers')">
+                                    <i class="fas fa-lock"></i> 完成前置课程解锁
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Family Module -->
+                        <div class="course-card" style="border-left: 4px solid #ec4899;">
+                            <div class="course-image" style="background: linear-gradient(135deg, #ec4899, #be185d);">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="course-content">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                    <h3 class="course-title">第4课：家庭成员</h3>
+                                    <span style="background: var(--gray-400); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.8rem;">未开始</span>
+                                </div>
+                                <p class="course-desc">学习家庭成员称谓和关系表达</p>
+                                <ul class="course-features">
+                                    <li><i class="fas fa-clock"></i> 家庭成员词汇</li>
+                                    <li><i class="fas fa-clock"></i> 年龄表达</li>
+                                    <li><i class="fas fa-clock"></i> 介绍家人</li>
+                                </ul>
+                                <button class="btn" style="width: 100%; background: var(--gray-300); color: var(--gray-600);" disabled>
+                                    <i class="fas fa-lock"></i> 完成前置课程解锁
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Daily Conversation -->
+                        <div class="course-card" style="border-left: 4px solid #8b5cf6;">
+                            <div class="course-image" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
                                 <i class="fas fa-comments"></i>
                             </div>
                             <div class="course-content">
-                                <h3 class="course-title">日常会话</h3>
-                                <p class="course-desc">学习最实用的日常对话和常用表达</p>
-                                <button class="btn btn-primary" onclick="showDialogue()">
-                                    <i class="fas fa-play"></i> 开始学习
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                    <h3 class="course-title">第5课：日常对话</h3>
+                                    <span style="background: var(--gray-400); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.8rem;">未开始</span>
+                                </div>
+                                <p class="course-desc">掌握购物、用餐等日常场景对话</p>
+                                <ul class="course-features">
+                                    <li><i class="fas fa-clock"></i> 购物对话</li>
+                                    <li><i class="fas fa-clock"></i> 餐厅用餐</li>
+                                    <li><i class="fas fa-clock"></i> 问路指路</li>
+                                </ul>
+                                <button class="btn" style="width: 100%; background: var(--gray-300); color: var(--gray-600);" disabled>
+                                    <i class="fas fa-lock"></i> 完成前置课程解锁
                                 </button>
                             </div>
                         </div>
                         
-                        <div class="course-card">
-                            <div class="course-image">
-                                <i class="fas fa-heart"></i>
+                        <!-- Business Basics -->
+                        <div class="course-card" style="border-left: 4px solid #f59e0b; position: relative;">
+                            <div style="position: absolute; top: -0.5rem; right: -0.5rem; background: var(--secondary); color: white; padding: 0.5rem; border-radius: 50%; z-index: 10;">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="course-image" style="background: linear-gradient(135deg, var(--secondary), #d97706);">
+                                <i class="fas fa-briefcase"></i>
                             </div>
                             <div class="course-content">
-                                <h3 class="course-title">文化小知识</h3>
-                                <p class="course-desc">了解越南文化和风俗习惯</p>
-                                <button class="btn btn-primary" onclick="showCulture()">
-                                    <i class="fas fa-book"></i> 开始阅读
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                    <h3 class="course-title">第6课：商务基础</h3>
+                                    <span style="background: var(--secondary); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.8rem;">VIP课程</span>
+                                </div>
+                                <p class="course-desc">商务场景基础对话和礼仪</p>
+                                <ul class="course-features">
+                                    <li><i class="fas fa-star"></i> 商务问候</li>
+                                    <li><i class="fas fa-star"></i> 公司介绍</li>
+                                    <li><i class="fas fa-star"></i> 商务礼仪</li>
+                                </ul>
+                                <button class="btn" style="width: 100%; background: var(--secondary); color: white;" onclick="openModal('trial-modal')">
+                                    <i class="fas fa-crown"></i> 立即试听解锁
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Interactive Tools -->
+            <section class="content-section" style="background: var(--gray-50);">
+                <div class="container">
+                    <h2 class="section-title">互动学习工具</h2>
+                    <p class="section-subtitle">让学习更有趣，记忆更深刻</p>
+                    
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-image" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="course-content">
+                                <h3 class="course-title">发音游戏</h3>
+                                <p class="course-desc">通过游戏化方式练习越南语发音</p>
+                                <div style="background: var(--gray-50); padding: 1rem; border-radius: 0.5rem; margin: 1rem 0;">
+                                    <div style="text-align: center; margin-bottom: 1rem;">
+                                        <div style="font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem;" id="tone-word">mẹ</div>
+                                        <div style="color: var(--gray-600);">这个词的声调是？</div>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                        <button class="btn btn-outline" onclick="checkTone(1)" style="font-size: 0.9rem;">第1声调</button>
+                                        <button class="btn btn-outline" onclick="checkTone(2)" style="font-size: 0.9rem;">第2声调</button>
+                                        <button class="btn btn-outline" onclick="checkTone(3)" style="font-size: 0.9rem;">第3声调</button>
+                                        <button class="btn btn-outline" onclick="checkTone(4)" style="font-size: 0.9rem;">第4声调</button>
+                                    </div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <span style="color: var(--accent); font-weight: bold;">正确率: <span id="game-score">75%</span></span>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="course-card">
-                            <div class="course-image">
+                            <div class="course-image" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                                <i class="fas fa-cards-blank"></i>
+                            </div>
+                            <div class="course-content">
+                                <h3 class="course-title">单词卡片</h3>
+                                <p class="course-desc">智能记忆卡片，高效背单词</p>
+                                <div style="background: var(--gray-50); padding: 1.5rem; border-radius: 0.5rem; margin: 1rem 0; text-align: center;" id="word-card">
+                                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;">xin chào</div>
+                                    <div style="display: none;" id="word-meaning">
+                                        <div style="color: var(--gray-600); margin-bottom: 0.5rem;">你好</div>
+                                        <div style="font-size: 0.9rem; color: var(--gray-500);">[sin cao]</div>
+                                    </div>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                    <button class="btn btn-outline" onclick="flipCard()" style="font-size: 0.9rem;">
+                                        <i class="fas fa-eye"></i> 查看答案
+                                    </button>
+                                    <button class="btn btn-primary" onclick="nextCard()" style="font-size: 0.9rem;">
+                                        <i class="fas fa-arrow-right"></i> 下一个
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-image" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
                                 <i class="fas fa-calendar-day"></i>
                             </div>
                             <div class="course-content">
-                                <h3 class="course-title">每日一句</h3>
-                                <p class="course-desc">每天学习一句实用的越南语表达</p>
+                                <h3 class="course-title">每日挑战</h3>
+                                <p class="course-desc">每天3分钟，坚持学习养成习惯</p>
                                 <div id="daily-sentence" style="background: var(--gray-50); padding: 1rem; border-radius: 0.5rem; margin: 1rem 0; text-align: center;">
                                     <div style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">
-                                        "Xin chào! Tôi là người Trung Quốc."
+                                        "Hôm nay thời tiết thế nào?"
                                     </div>
-                                    <div style="color: var(--gray-600);">
-                                        你好！我是中国人。
+                                    <div style="color: var(--gray-600); margin-bottom: 1rem;">
+                                        今天天气怎么样？
+                                    </div>
+                                    <div style="display: flex; justify-content: center; gap: 0.5rem;">
+                                        <span style="background: var(--primary); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.8rem;">日常对话</span>
+                                        <span style="background: var(--accent); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.8rem;">天气</span>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" onclick="nextSentence()">
+                                <button class="btn btn-primary" onclick="nextSentence()" style="width: 100%;">
                                     <i class="fas fa-refresh"></i> 下一句
                                 </button>
                             </div>
@@ -1432,12 +1673,18 @@
 
         // Free learning interactions
         const dailySentences = [
-            { vietnamese: 'Xin chào! Tôi là người Trung Quốc.', chinese: '你好！我是中国人。' },
-            { vietnamese: 'Cảm ơn bạn rất nhiều!', chinese: '非常感谢你！' },
-            { vietnamese: 'Tôi muốn học tiếng Việt.', chinese: '我想学越南语。' },
-            { vietnamese: 'Bạn có thể giúp tôi không?', chinese: '你能帮助我吗？' },
-            { vietnamese: 'Rất vui được gặp bạn!', chinese: '很高兴见到你！' },
-            { vietnamese: 'Chúc bạn một ngày tốt lành!', chinese: '祝你有美好的一天！' }
+            { vietnamese: 'Hôm nay thời tiết thế nào?', chinese: '今天天气怎么样？', category: '日常对话', level: '天气' },
+            { vietnamese: 'Xin chào! Tôi là người Trung Quốc.', chinese: '你好！我是中国人。', category: '自我介绍', level: '基础' },
+            { vietnamese: 'Cảm ơn bạn rất nhiều!', chinese: '非常感谢你！', category: '礼貌用语', level: '基础' },
+            { vietnamese: 'Tôi muốn học tiếng Việt.', chinese: '我想学越南语。', category: '学习表达', level: '基础' },
+            { vietnamese: 'Bạn có thể giúp tôi không?', chinese: '你能帮助我吗？', category: '请求帮助', level: '实用' },
+            { vietnamese: 'Rất vui được gặp bạn!', chinese: '很高兴见到你！', category: '社交用语', level: '礼貌' },
+            { vietnamese: 'Chúc bạn một ngày tốt lành!', chinese: '祝你有美好的一天！', category: '祝福用语', level: '礼貌' },
+            { vietnamese: 'Tôi đói rồi, mình đi ăn nhé!', chinese: '我饿了，我们去吃饭吧！', category: '日常生活', level: '实用' },
+            { vietnamese: 'Bao giờ anh rảnh?', chinese: '你什么时候有空？', category: '约会安排', level: '社交' },
+            { vietnamese: 'Xin lỗi, tôi không hiểu.', chinese: '对不起，我不明白。', category: '语言困难', level: '实用' },
+            { vietnamese: 'Công ty tôi muốn hợp tác với các bạn.', chinese: '我们公司想与你们合作。', category: '商务对话', level: '商务' },
+            { vietnamese: 'Sản phẩm này giá bao nhiều?', chinese: '这个产品多少钱？', category: '购物询价', level: '购物' }
         ];
 
         let currentSentenceIndex = 0;
@@ -1451,8 +1698,12 @@
                 <div style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">
                     "${sentence.vietnamese}"
                 </div>
-                <div style="color: var(--gray-600);">
+                <div style="color: var(--gray-600); margin-bottom: 1rem;">
                     ${sentence.chinese}
+                </div>
+                <div style="display: flex; justify-content: center; gap: 0.5rem;">
+                    <span style="background: var(--primary); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.8rem;">${sentence.category}</span>
+                    <span style="background: var(--accent); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.8rem;">${sentence.level}</span>
                 </div>
             `;
         }
@@ -1492,6 +1743,153 @@ A: Tôi cũng rất khỏe. Hôm nay thời tiết đẹp quá!
 💼 商务文化：
 商务场合通常比较正式，准时出席会议非常重要。
             `);
+        }
+
+        // New interactive functions
+        function startLesson(lessonType) {
+            const lessons = {
+                'pronunciation': {
+                    title: '第1课：基础发音',
+                    content: `
+🎯 课程内容：
+
+📍 越南语6个声调：
+1️⃣ 平声调 (không dấu): ma (鬼)
+2️⃣ 锐声调 (dấu sắc): má (脸颊) 
+3️⃣ 玄声调 (dấu huyền): mà (但是)
+4️⃣ 问声调 (dấu hỏi): mả (坟墓)
+5️⃣ 跌声调 (dấu ngã): mã (马)
+6️⃣ 重声调 (dấu nặng): mạ (秧苗)
+
+🎵 发音技巧：
+- 平声调：音调平稳
+- 锐声调：音调上升
+- 玄声调：音调下降
+- 问声调：音调先降后升
+- 跌声调：音调急促中断
+- 重声调：音调低沉短促
+
+✅ 已完成课程！继续学习第2课吧！
+                    `
+                },
+                'greetings': {
+                    title: '第2课：问候与介绍',
+                    content: `
+🎯 课程内容：
+
+👋 基本问候：
+• Xin chào! - 你好！
+• Chào anh/chị - 您好！(对男性/女性)
+• Hẹn gặp lại! - 再见！
+
+🗣️ 自我介绍：
+• Tôi là... - 我是...
+• Tên tôi là... - 我叫...
+• Tôi đến từ Trung Quốc - 我来自中国
+• Rất vui được gặp anh/chị - 很高兴见到您
+
+💬 常用对话：
+A: Xin chào! Tên tôi là Minh.
+B: Chào anh! Tôi là Lan. Rất vui được gặp anh.
+A: Anh đến từ đâu?
+B: Tôi đến từ Trung Quốc.
+
+继续练习，完成课程后可解锁第3课！
+                    `
+                }
+            };
+            
+            const lesson = lessons[lessonType];
+            if (lesson) {
+                alert(lesson.title + '\n\n' + lesson.content);
+                
+                // Update progress
+                if (lessonType === 'greetings') {
+                    updateProgress();
+                }
+            }
+        }
+
+        function updateProgress() {
+            document.getElementById('completed-lessons').textContent = '2';
+            document.getElementById('study-time').textContent = '65';
+            document.getElementById('words-learned').textContent = '42';
+        }
+
+        // Tone game functionality
+        const toneWords = [
+            { word: 'mẹ', tone: 2, meaning: '妈妈' },
+            { word: 'má', tone: 2, meaning: '脸颊' },
+            { word: 'mà', tone: 3, meaning: '但是' },
+            { word: 'mả', tone: 4, meaning: '坟墓' },
+            { word: 'mã', tone: 5, meaning: '马' },
+            { word: 'mạ', tone: 6, meaning: '秧苗' },
+            { word: 'ba', tone: 1, meaning: '三/爸爸' },
+            { word: 'bá', tone: 2, meaning: '伯爵' }
+        ];
+        
+        let currentWordIndex = 0;
+        let correctAnswers = 0;
+        let totalAnswers = 0;
+
+        function checkTone(selectedTone) {
+            const currentWord = toneWords[currentWordIndex];
+            totalAnswers++;
+            
+            if (selectedTone === currentWord.tone) {
+                correctAnswers++;
+                alert(`正确！"${currentWord.word}" 的确是第${currentWord.tone}声调，意思是"${currentWord.meaning}"`);
+            } else {
+                alert(`不对哦！"${currentWord.word}" 是第${currentWord.tone}声调，意思是"${currentWord.meaning}"`);
+            }
+            
+            // Update score
+            const score = Math.round((correctAnswers / totalAnswers) * 100);
+            document.getElementById('game-score').textContent = score + '%';
+            
+            // Next word
+            currentWordIndex = (currentWordIndex + 1) % toneWords.length;
+            document.getElementById('tone-word').textContent = toneWords[currentWordIndex].word;
+        }
+
+        // Word card functionality
+        const wordCards = [
+            { vietnamese: 'xin chào', chinese: '你好', pronunciation: '[sin cao]' },
+            { vietnamese: 'cảm ơn', chinese: '谢谢', pronunciation: '[gam ern]' },
+            { vietnamese: 'xin lỗi', chinese: '对不起', pronunciation: '[sin loy]' },
+            { vietnamese: 'tạm biệt', chinese: '再见', pronunciation: '[dam biet]' },
+            { vietnamese: 'không', chinese: '不', pronunciation: '[hong]' },
+            { vietnamese: 'có', chinese: '有/是', pronunciation: '[go]' },
+            { vietnamese: 'nước', chinese: '水/国家', pronunciation: '[nuo-k]' },
+            { vietnamese: 'ăn', chinese: '吃', pronunciation: '[an]' }
+        ];
+        
+        let currentCardIndex = 0;
+        let cardFlipped = false;
+
+        function flipCard() {
+            const meaningDiv = document.getElementById('word-meaning');
+            if (cardFlipped) {
+                meaningDiv.style.display = 'none';
+                cardFlipped = false;
+            } else {
+                meaningDiv.style.display = 'block';
+                cardFlipped = true;
+            }
+        }
+
+        function nextCard() {
+            currentCardIndex = (currentCardIndex + 1) % wordCards.length;
+            const card = wordCards[currentCardIndex];
+            
+            // Update card content
+            document.querySelector('#word-card > div:first-child').textContent = card.vietnamese;
+            document.querySelector('#word-meaning > div:first-child').textContent = card.chinese;
+            document.querySelector('#word-meaning > div:last-child').textContent = card.pronunciation;
+            
+            // Hide meaning
+            document.getElementById('word-meaning').style.display = 'none';
+            cardFlipped = false;
         }
 
         // Navbar scroll effect
