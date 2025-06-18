@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华越视野 - HoaVietVision | 专业中越语言文化交流平台</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --accent: #10b981;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray-700);
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: var(--gray-50);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .feature-desc {
+            color: var(--gray-600);
+        }
+
+        /* Course Comparison */
+        .comparison {
+            padding: 100px 0;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-top: 3rem;
+        }
+
+        .comparison-header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .comparison-cell {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .comparison-cell:nth-child(2) {
+            border-left: 1px solid var(--gray-200);
+            border-right: 1px solid var(--gray-200);
+        }
+
+        .comparison-cell.highlight {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--gray-50);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 2rem;
+            color: var(--primary);
+            position: absolute;
+            top: -0.5rem;
+            left: 1rem;
+        }
+
+        .testimonial-text {
+            margin: 1rem 0 2rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .author-info p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .footer-section a {
+            color: var(--gray-300);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 1rem;
+            text-align: center;
+            color: var(--gray-400);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-cell:nth-child(2) {
+                border: none;
+            }
+
+            .features-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-600);
+        }
+
+        .close:hover {
+            color: var(--gray-900);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Page Specific Styles */
+        .page-header {
+            background: var(--gradient);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-image {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .course-content {
+            padding: 2rem;
+        }
+
+        .course-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .course-desc {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .course-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .course-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gray-700);
+        }
+
+        .course-features i {
+            color: var(--accent);
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo" onclick="showPage('home')">
+                    华越视野<span style="font-size: 0.8rem; opacity: 0.8;"> HoaVietVision</span>
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#" class="nav-link active" onclick="showPage('home')">首页</a></li>
+                    <li><a href="#" class="nav-link" onclick="showPage('courses')">课程体系</a></li>
+                    <li><a href="#" class="nav-link" onclick="showPage('free-learning')">免费学习</a></li>
+                    <li><a href="#" class="nav-link" onclick="showPage('about')">关于我们</a></li>
+                    <li><a href="#" class="nav-link" onclick="showPage('contact')">联系我们</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>连接中越，架起语言桥梁</h1>
+                        <p class="hero-subtitle">专业的中文-越南语学习平台，让语言不再是障碍</p>
+                        <div class="cta-buttons">
+                            <a href="#" class="btn btn-primary" onclick="openModal('trial-modal')">
+                                <i class="fas fa-play"></i> 免费试听
+                            </a>
+                            <a href="#" class="btn btn-outline" onclick="showPage('courses')">
+                                <i class="fas fa-graduation-cap"></i> 了解课程
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">为什么选择华越视野？</h2>
+                    <p class="section-subtitle">我们专注于为中文使用者提供最专业、最有效的越南语学习体验</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="feature-title">沉浸式互动学习</h3>
+                            <p class="feature-desc">线下小班教学，情景模拟，真实对话练习，让你在实际交流中掌握越南语</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe-asia"></i>
+                            </div>
+                            <h3 class="feature-title">中越文化融合</h3>
+                            <p class="feature-desc">深度解读两国文化差异，商务礼仪，帮助你在越南更好地工作和生活</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3 class="feature-title">专业师资团队</h3>
+                            <p class="feature-desc">中越双语教师，丰富教学经验，针对中文使用者特点定制教学方法</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="feature-title">商务应用导向</h3>
+                            <p class="feature-desc">专注商务越南语，贸易谈判，投资合作等实用场景，助力事业发展</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="feature-title">线上线下结合</h3>
+                            <p class="feature-desc">灵活学习方式，线上预习复习，线下深度互动，学习效果事半功倍</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3 class="feature-title">学习成果认证</h3>
+                            <p class="feature-desc">完善的学习评估体系，颁发结业证书，为你的越南语能力提供权威证明</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Course Comparison -->
+            <section class="comparison">
+                <div class="container">
+                    <h2 class="section-title">线上 vs 线下课程对比</h2>
+                    <p class="section-subtitle">了解不同学习方式的优势，选择最适合你的学习路径</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-header">
+                            <h3>课程对比一览表</h3>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell"><strong>对比项目</strong></div>
+                            <div class="comparison-cell"><strong>线上课程</strong></div>
+                            <div class="comparison-cell highlight"><strong>线下课程（推荐）</strong></div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">学习方式</div>
+                            <div class="comparison-cell">视频教学<br>自主学习</div>
+                            <div class="comparison-cell highlight">面对面互动<br>小班教学</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">互动程度</div>
+                            <div class="comparison-cell">有限互动<br>在线答疑</div>
+                            <div class="comparison-cell highlight">高度互动<br>实时反馈</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">实践练习</div>
+                            <div class="comparison-cell">模拟练习<br>录音作业</div>
+                            <div class="comparison-cell highlight">情景模拟<br>真实对话</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">学习氛围</div>
+                            <div class="comparison-cell">独立学习<br>自我督促</div>
+                            <div class="comparison-cell highlight">同伴学习<br>相互激励</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">文化体验</div>
+                            <div class="comparison-cell">文化介绍<br>视频展示</div>
+                            <div class="comparison-cell highlight">文化沉浸<br>深度体验</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">价格</div>
+                            <div class="comparison-cell">¥299/月</div>
+                            <div class="comparison-cell highlight">¥1999/期</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="testimonials">
+                <div class="container">
+                    <h2 class="section-title">学员真实评价</h2>
+                    <p class="section-subtitle">听听我们的学员怎么说</p>
+                    
+                    <div class="testimonial-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <p class="testimonial-text">
+                                在华越视野学习3个月后，我已经能够独立处理与越南合作伙伴的商务谈判了。
+                                老师不仅教授语言，更重要的是让我了解了越南的商务文化和礼仪。
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">李</div>
+                                <div class="author-info">
+                                    <h4>李先生</h4>
+                                    <p>贸易公司总经理</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <p class="testimonial-text">
+                                线下课程的互动性非常强，每次课都有角色扮演和情景模拟，
+                                让我在轻松愉快的氛围中快速提升了口语水平。
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">王</div>
+                                <div class="author-info">
+                                    <h4>王女士</h4>
+                                    <p>投资顾问</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <p class="testimonial-text">
+                                作为准备去越南留学的学生，华越视野不仅帮我掌握了语言，
+                                更让我提前了解了越南的生活文化，为留学生活做好了充分准备。
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">张</div>
+                                <div class="author-info">
+                                    <h4>张同学</h4>
+                                    <p>大学生</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Courses Page -->
+        <div id="courses" class="page">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">课程体系</h1>
+                    <p class="page-subtitle">选择最适合你的学习方式，开启越南语学习之旅</p>
+                </div>
+            </div>
+            
+            <section class="content-section">
+                <div class="container">
+                    <div class="course-grid">
+                        <!-- Online Course -->
+                        <div class="course-card">
+                            <div class="course-image">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <div class="course-content">
+                                <h3 class="course-title">线上基础课程</h3>
+                                <p class="course-desc">灵活的在线学习方式，适合初学者和想要预习复习的学员</p>
+                                <ul class="course-features">
+                                    <li><i class="fas fa-check"></i> 24小时随时学习</li>
+                                    <li><i class="fas fa-check"></i> 基础语法词汇</li>
+                                    <li><i class="fas fa-check"></i> 发音练习</li>
+                                    <li><i class="fas fa-check"></i> 在线答疑</li>
+                                    <li><i class="fas fa-check"></i> 学习进度跟踪</li>
+                                </ul>
+                                <div class="price">¥299/月</div>
+                                <button class="btn btn-primary" onclick="openModal('enrollment-modal')" data-course="online">
+                                    立即报名
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Offline Course -->
+                        <div class="course-card" style="border: 3px solid var(--secondary);">
+                            <div class="course-image">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="course-content">
+                                <div style="background: var(--secondary); color: white; padding: 0.25rem 1rem; border-radius: 1rem; display: inline-block; margin-bottom: 1rem; font-size: 0.9rem;">
+                                    推荐课程
+                                </div>
+                                <h3 class="course-title">线下精品课程</h3>
+                                <p class="course-desc">小班面授，沉浸式学习体验，高度互动和情景模拟</p>
+                                <ul class="course-features">
+                                    <li><i class="fas fa-check"></i> 小班教学(6-8人)</li>
+                                    <li><i class="fas fa-check"></i> 面对面互动</li>
+                                    <li><i class="fas fa-check"></i> 情景模拟练习</li>
+                                    <li><i class="fas fa-check"></i> 文化沉浸体验</li>
+                                    <li><i class="fas fa-check"></i> 个性化指导</li>
+                                    <li><i class="fas fa-check"></i> 结业证书</li>
+                                </ul>
+                                <div class="price">¥1999/期 <span style="font-size: 0.8rem; color: var(--gray-600);">(3个月)</span></div>
+                                <button class="btn btn-primary" onclick="openModal('enrollment-modal')" data-course="offline">
+                                    立即报名
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Business Course -->
+                        <div class="course-card">
+                            <div class="course-image">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="course-content">
+                                <h3 class="course-title">商务越南语课程</h3>
+                                <p class="course-desc">专为商务人士设计，涵盖贸易、投资、谈判等场景</p>
+                                <ul class="course-features">
+                                    <li><i class="fas fa-check"></i> 商务场景对话</li>
+                                    <li><i class="fas fa-check"></i> 贸易术语学习</li>
+                                    <li><i class="fas fa-check"></i> 商务礼仪文化</li>
+                                    <li><i class="fas fa-check"></i> 谈判技巧</li>
+                                    <li><i class="fas fa-check"></i> 实战案例分析</li>
+                                </ul>
+                                <div class="price">¥2999/期 <span style="font-size: 0.8rem; color: var(--gray-600);">(2个月)</span></div>
+                                <button class="btn btn-primary" onclick="openModal('enrollment-modal')" data-course="business">
+                                    立即报名
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Free Learning Page -->
+        <div id="free-learning" class="page">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">免费学习</h1>
+                    <p class="page-subtitle">体验我们的教学质量，开始你的越南语学习之旅</p>
+                </div>
+            </div>
+            
+            <section class="content-section">
+                <div class="container">
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-image">
+                                <i class="fas fa-volume-up"></i>
+                            </div>
+                            <div class="course-content">
+                                <h3 class="course-title">基础发音教学</h3>
+                                <p class="course-desc">掌握越南语的基础发音规则和语调</p>
+                                <button class="btn btn-primary" onclick="playAudio('pronunciation')">
+                                    <i class="fas fa-play"></i> 开始学习
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-image">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="course-content">
+                                <h3 class="course-title">日常会话</h3>
+                                <p class="course-desc">学习最实用的日常对话和常用表达</p>
+                                <button class="btn btn-primary" onclick="showDialogue()">
+                                    <i class="fas fa-play"></i> 开始学习
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-image">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="course-content">
+                                <h3 class="course-title">文化小知识</h3>
+                                <p class="course-desc">了解越南文化和风俗习惯</p>
+                                <button class="btn btn-primary" onclick="showCulture()">
+                                    <i class="fas fa-book"></i> 开始阅读
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-image">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                            <div class="course-content">
+                                <h3 class="course-title">每日一句</h3>
+                                <p class="course-desc">每天学习一句实用的越南语表达</p>
+                                <div id="daily-sentence" style="background: var(--gray-50); padding: 1rem; border-radius: 0.5rem; margin: 1rem 0; text-align: center;">
+                                    <div style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">
+                                        "Xin chào! Tôi là người Trung Quốc."
+                                    </div>
+                                    <div style="color: var(--gray-600);">
+                                        你好！我是中国人。
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" onclick="nextSentence()">
+                                    <i class="fas fa-refresh"></i> 下一句
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">关于我们</h1>
+                    <p class="page-subtitle">专业的中越语言文化交流平台</p>
+                </div>
+            </div>
+            
+            <section class="content-section">
+                <div class="container">
+                    <div style="max-width: 800px; margin: 0 auto;">
+                        <div style="background: white; padding: 3rem; border-radius: 1rem; box-shadow: var(--shadow); margin-bottom: 3rem;">
+                            <h2 style="color: var(--primary); margin-bottom: 2rem;">我们的使命</h2>
+                            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray-700);">
+                                华越视野（HoaVietVision）致力于成为中越两国语言文化交流的专业桥梁。我们深知语言不仅是沟通的工具，更是文化的载体。通过专业的教学方法和丰富的文化体验，我们帮助更多中国朋友掌握越南语，促进两国人民的友好交流与合作。
+                            </p>
+                        </div>
+                        
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <h3 class="feature-title">专业认证</h3>
+                                <p class="feature-desc">教育部认证的语言培训机构，专业权威</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <h3 class="feature-title">经验丰富</h3>
+                                <p class="feature-desc">5年教学经验，累计培训学员超过1000人</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h3 class="feature-title">企业合作</h3>
+                                <p class="feature-desc">与多家中越贸易企业建立培训合作关系</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Teacher Section -->
+            <section class="content-section" style="background: var(--gray-50);">
+                <div class="container">
+                    <h2 class="section-title">师资团队</h2>
+                    <p class="section-subtitle">经验丰富的中越双语教师团队</p>
+                    
+                    <div class="testimonial-grid">
+                        <div class="testimonial-card">
+                            <div style="text-align: center; margin-bottom: 1.5rem;">
+                                <div style="width: 80px; height: 80px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; margin: 0 auto 1rem;">
+                                    阮
+                                </div>
+                                <h3 style="color: var(--primary);">阮老师</h3>
+                                <p style="color: var(--gray-600);">主讲教师 | 越南河内大学</p>
+                            </div>
+                            <p>
+                                越南语言文学专业硕士，在中国从事越南语教学8年，深谙中国学生学习越南语的难点和特点，教学方法生动有趣。
+                            </p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div style="text-align: center; margin-bottom: 1.5rem;">
+                                <div style="width: 80px; height: 80px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; margin: 0 auto 1rem;">
+                                    李
+                                </div>
+                                <h3 style="color: var(--primary);">李老师</h3>
+                                <p style="color: var(--gray-600);">商务越南语讲师 | 北京外国语大学</p>
+                            </div>
+                            <p>
+                                外语教学专业博士，曾在越南工作5年，专注商务越南语教学，对中越贸易文化有深入理解。
+                            </p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div style="text-align: center; margin-bottom: 1.5rem;">
+                                <div style="width: 80px; height: 80px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; margin: 0 auto 1rem;">
+                                    黄
+                                </div>
+                                <h3 style="color: var(--primary);">黄老师</h3>
+                                <p style="color: var(--gray-600);">文化交流专家 | 胡志明市师范大学</p>
+                            </div>
+                            <p>
+                                越南文化研究专家，致力于中越文化交流研究，能够深入浅出地讲解两国文化差异。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">联系我们</h1>
+                    <p class="page-subtitle">开始你的越南语学习之旅</p>
+                </div>
+            </div>
+            
+            <section class="content-section">
+                <div class="container">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                        <div>
+                            <h2 style="color: var(--primary); margin-bottom: 2rem;">联系方式</h2>
+                            <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow);">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                                    <div style="width: 3rem; height: 3rem; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h4>咨询热线</h4>
+                                        <p style="color: var(--gray-600);">400-123-4567</p>
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                                    <div style="width: 3rem; height: 3rem; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4>邮箱地址</h4>
+                                        <p style="color: var(--gray-600);">info@hoavietvision.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                                    <div style="width: 3rem; height: 3rem; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4>学习中心</h4>
+                                        <p style="color: var(--gray-600);">上海市黄浦区南京东路123号</p>
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 3rem; height: 3rem; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h4>服务时间</h4>
+                                        <p style="color: var(--gray-600);">周一至周日 9:00-21:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h2 style="color: var(--primary); margin-bottom: 2rem;">在线咨询</h2>
+                            <form style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow);" onsubmit="submitContactForm(event)">
+                                <div class="form-group">
+                                    <label for="contact-name">姓名 *</label>
+                                    <input type="text" id="contact-name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-phone">联系电话 *</label>
+                                    <input type="tel" id="contact-phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email">邮箱</label>
+                                    <input type="email" id="contact-email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-interest">感兴趣的课程</label>
+                                    <select id="contact-interest" name="interest">
+                                        <option value="online">线上基础课程</option>
+                                        <option value="offline">线下精品课程</option>
+                                        <option value="business">商务越南语课程</option>
+                                        <option value="custom">定制课程</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-message">留言</label>
+                                    <textarea id="contact-message" name="message" rows="4" placeholder="请描述您的学习需求..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                    发送咨询
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+    </main>
+
+    <!-- Enrollment Modal -->
+    <div id="enrollment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('enrollment-modal')">&times;</span>
+            <h2 style="margin-bottom: 1.5rem; color: var(--primary);">
+                <i class="fas fa-graduation-cap"></i> 课程报名
+            </h2>
+            <form id="enrollment-form" onsubmit="submitEnrollmentForm(event)">
+                <div class="form-group">
+                    <label for="enroll-course">选择课程</label>
+                    <select id="enroll-course" name="course">
+                        <option value="online">线上基础课程 - ¥299/月</option>
+                        <option value="offline">线下精品课程 - ¥1999/期</option>
+                        <option value="business">商务越南语课程 - ¥2999/期</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="enroll-name">姓名 *</label>
+                    <input type="text" id="enroll-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="enroll-phone">联系电话 *</label>
+                    <input type="tel" id="enroll-phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="enroll-email">邮箱</label>
+                    <input type="email" id="enroll-email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="enroll-level">越南语水平</label>
+                    <select id="enroll-level" name="level">
+                        <option value="zero">零基础</option>
+                        <option value="beginner">初级</option>
+                        <option value="intermediate">中级</option>
+                        <option value="advanced">高级</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="enroll-schedule">期望上课时间</label>
+                    <select id="enroll-schedule" name="schedule">
+                        <option value="weekday-morning">工作日上午</option>
+                        <option value="weekday-afternoon">工作日下午</option>
+                        <option value="weekday-evening">工作日晚上</option>
+                        <option value="weekend">周末</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    提交报名
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Trial Modal -->
+    <div id="trial-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('trial-modal')">&times;</span>
+            <h2 style="margin-bottom: 1.5rem; color: var(--primary);">
+                <i class="fas fa-play-circle"></i> 免费试听申请
+            </h2>
+            <form id="trial-form" onsubmit="submitTrialForm(event)">
+                <div class="form-group">
+                    <label for="name">姓名 *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">联系电话 *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">邮箱</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="level">越南语水平</label>
+                    <select id="level" name="level">
+                        <option value="zero">零基础</option>
+                        <option value="beginner">初级</option>
+                        <option value="intermediate">中级</option>
+                        <option value="advanced">高级</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="purpose">学习目的</label>
+                    <select id="purpose" name="purpose">
+                        <option value="business">商务交流</option>
+                        <option value="travel">旅游文化</option>
+                        <option value="study">留学准备</option>
+                        <option value="interest">兴趣爱好</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <span id="submit-text">提交申请</span>
+                    <span id="submit-loading" class="loading" style="display: none;"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>华越视野</h3>
+                    <p style="color: var(--gray-300); margin-bottom: 1rem;">
+                        专业的中文-越南语学习平台<br>
+                        HoaVietVision - Bridging Language Barriers
+                    </p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--secondary);"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: var(--secondary);"><i class="fab fa-wechat"></i></a>
+                        <a href="#" style="color: var(--secondary);"><i class="fab fa-qq"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>课程体系</h3>
+                    <a href="#" onclick="showPage('courses')">线上课程</a>
+                    <a href="#" onclick="showPage('courses')">线下课程</a>
+                    <a href="#" onclick="showPage('free-learning')">免费学习</a>
+                    <a href="#" onclick="showPage('courses')">商务越南语</a>
+                </div>
+                <div class="footer-section">
+                    <h3>服务支持</h3>
+                    <a href="#" onclick="showPage('about')">关于我们</a>
+                    <a href="#" onclick="showPage('contact')">联系我们</a>
+                    <a href="#">学习指南</a>
+                    <a href="#">常见问题</a>
+                </div>
+                <div class="footer-section">
+                    <h3>联系方式</h3>
+                    <p style="color: var(--gray-300); margin-bottom: 0.5rem;">
+                        <i class="fas fa-phone"></i> 400-123-4567
+                    </p>
+                    <p style="color: var(--gray-300); margin-bottom: 0.5rem;">
+                        <i class="fas fa-envelope"></i> info@hoavietvision.com
+                    </p>
+                    <p style="color: var(--gray-300); margin-bottom: 0.5rem;">
+                        <i class="fas fa-map-marker-alt"></i> 上海市黄浦区南京东路123号
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 华越视野 HoaVietVision. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById('nav-menu').classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        });
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Form submission
+        function submitTrialForm(event) {
+            event.preventDefault();
+            
+            const submitText = document.getElementById('submit-text');
+            const submitLoading = document.getElementById('submit-loading');
+            
+            // Show loading state
+            submitText.style.display = 'none';
+            submitLoading.style.display = 'inline-block';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitText.style.display = 'inline';
+                submitLoading.style.display = 'none';
+                alert('申请提交成功！我们会在24小时内联系您安排试听课程。');
+                closeModal('trial-modal');
+                document.getElementById('trial-form').reset();
+            }, 2000);
+        }
+
+        function submitEnrollmentForm(event) {
+            event.preventDefault();
+            alert('报名提交成功！我们会在24小时内联系您确认课程安排。');
+            closeModal('enrollment-modal');
+            document.getElementById('enrollment-form').reset();
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            alert('咨询已提交！我们会尽快回复您。');
+            event.target.reset();
+        }
+
+        // Free learning interactions
+        const dailySentences = [
+            { vietnamese: 'Xin chào! Tôi là người Trung Quốc.', chinese: '你好！我是中国人。' },
+            { vietnamese: 'Cảm ơn bạn rất nhiều!', chinese: '非常感谢你！' },
+            { vietnamese: 'Tôi muốn học tiếng Việt.', chinese: '我想学越南语。' },
+            { vietnamese: 'Bạn có thể giúp tôi không?', chinese: '你能帮助我吗？' },
+            { vietnamese: 'Rất vui được gặp bạn!', chinese: '很高兴见到你！' },
+            { vietnamese: 'Chúc bạn một ngày tốt lành!', chinese: '祝你有美好的一天！' }
+        ];
+
+        let currentSentenceIndex = 0;
+
+        function nextSentence() {
+            currentSentenceIndex = (currentSentenceIndex + 1) % dailySentences.length;
+            const sentence = dailySentences[currentSentenceIndex];
+            const container = document.getElementById('daily-sentence');
+            
+            container.innerHTML = `
+                <div style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">
+                    "${sentence.vietnamese}"
+                </div>
+                <div style="color: var(--gray-600);">
+                    ${sentence.chinese}
+                </div>
+            `;
+        }
+
+        function playAudio(type) {
+            alert('音频播放功能正在开发中，敬请期待！');
+        }
+
+        function showDialogue() {
+            alert(`
+日常对话示例：
+
+A: Xin chào! Bạn có khỏe không?
+   (你好！你好吗？)
+
+B: Tôi khỏe, cảm ơn bạn! Còn bạn thì sao?
+   (我很好，谢谢你！你呢？)
+
+A: Tôi cũng rất khỏe. Hôm nay thời tiết đẹp quá!
+   (我也很好。今天天气真好！)
+            `);
+        }
+
+        function showCulture() {
+            alert(`
+越南文化小知识：
+
+🏮 节日文化：
+越南新年(Tết)是最重要的传统节日，相当于中国的春节。
+
+🍜 饮食文化：
+河粉(Phở)是越南最著名的美食，通常在早餐时享用。
+
+🙏 社交礼仪：
+初次见面时，轻微鞠躬并双手合十是常见的礼貌表达。
+
+💼 商务文化：
+商务场合通常比较正式，准时出席会议非常重要。
+            `);
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.feature-card, .testimonial-card, .course-card');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html> 
